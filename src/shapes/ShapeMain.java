@@ -8,63 +8,24 @@ public class ShapeMain {
 
         Scanner sc = new Scanner(System.in);
 
-        // TASK 1
-        int n = sc.nextInt();
+        String shapeType = sc.next();
+        String color = sc.next();
+        boolean filled = sc.nextBoolean();
 
-        // TASK 2
-        Shape[] shapes = new Shape[n];
+        Shape shape;
 
-        // TASK 3
-        for (int i = 0; i < n; i++) {
+        if (shapeType.equalsIgnoreCase("rectangle")) {
+            double width = sc.nextDouble();
+            double length = sc.nextDouble();
 
-            String type = sc.next();
-            String color = sc.next();
-            boolean filled = sc.nextBoolean();
+            shape = new Rectangle(color, filled, width, length);
+        } else {
+            double radius = sc.nextDouble();
 
-            if (type.equals("RECTANGLE")) {
-
-                double width = sc.nextDouble();
-                double length = sc.nextDouble();
-
-                shapes[i] = new Rectangle(color, filled, width, length);
-
-            } else if (type.equals("CIRCLE")) {
-
-                double radius = sc.nextDouble();
-
-                shapes[i] = new Circle(color, filled, radius);
-            }
+            shape = new Circle(color, filled, radius);
         }
 
-        // TASK 4
-        for (Shape s : shapes) {
-            System.out.println(s);
-            System.out.println();
-        }
-
-        // TASK 5
-        System.out.println("--- Downcast Check ---");
-
-        for (Shape s : shapes) {
-
-            if (s instanceof Rectangle) {
-
-                Rectangle r = (Rectangle) s;
-
-                System.out.println("Rectangle width=" + r.getWidth()
-                        + " length=" + r.getLength());
-
-            } else if (s instanceof Circle) {
-
-                Circle c = (Circle) s;
-
-                System.out.println("Circle radius=" + c.getRadius());
-            }
-        }
-
-        // TASK 6
-        // ANSWER:
-        // error: Shape is abstract; cannot be instantiated
+        System.out.println(shape);
 
         sc.close();
     }
