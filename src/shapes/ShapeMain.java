@@ -42,7 +42,7 @@ public class ShapeMain {
             System.out.println();
         }
 
-        // TASK 5 — Downcasting
+        // TASK 5
         System.out.println("--- Downcast Check ---");
 
         for (Shape s : shapes) {
@@ -51,24 +51,21 @@ public class ShapeMain {
 
                 Rectangle r = (Rectangle) s;
 
-                System.out.println(
-                        "Rectangle width=" + r.getWidth()
-                                + " length=" + r.getLength()
-                );
+                System.out.println("Rectangle width=" + r.getWidth()
+                        + " length=" + r.getLength());
 
             } else if (s instanceof Circle) {
 
                 Circle c = (Circle) s;
 
-                System.out.println(
-                        "Circle radius=" + c.getRadius()
-                );
+                System.out.println("Circle radius=" + c.getRadius());
             }
         }
 
-        //TASK 6 ANSWER
-//        ANSWER: Can not instanctiate Abstract class
+        // TASK 6
+        // ANSWER:
+        // error: Shape is abstract; cannot be instantiated
 
         sc.close();
     }
-}// Enter code here
+}
